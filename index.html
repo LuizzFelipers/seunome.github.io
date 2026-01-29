@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> | Luiz Felipe</title>
+    <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/svgs/solid/user-tie.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #16213e;
+            --accent-color: #0fce7c;
+            --text-color: #f1f1f1;
+            --text-secondary: #b0b0b0;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(15, 206, 124, 0.3);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--accent-color), #4cc9f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .presentation {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .presentation h2 {
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .presentation p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .dashboards-section {
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .dashboards-header {
+            padding: 20px 30px;
+            background-color: rgba(15, 206, 124, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dashboards-header:hover {
+            background-color: rgba(15, 206, 124, 0.2);
+        }
+
+        .dashboards-header h2 {
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dashboards-header i {
+            transition: transform 0.3s;
+        }
+
+        .dashboards-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+
+        .dashboards-content.expanded {
+            padding: 30px;
+            max-height: 1000px;
+        }
+
+        .dashboard-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dashboard-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .dashboard-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .dashboard-description {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .dashboard-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .dashboard-link:hover {
+            background-color: #0eb972;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(15, 206, 124, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-links a:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .presentation, .dashboards-header, .dashboards-content.expanded {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="1769129391034.jpg" alt="Foto de perfil" class="profile-img">
+            <h1>Luiz Felipe</h1>
+            <p class="subtitle">Estudante de Economia | Luziânia - (GO)</p>
+        </header>
+
+        <section class="presentation">
+            <h2>Sobre Mim</h2>
+            <p>Olá, sou estuande de economia na <b>UNIUBE</b>. Meu maior objetivo é inciar na área corporativa, especialmente em FP&A, Controladoria e M&A. Além disso, minhas experiências mais expressivas
+            são: Aprendiz Administrativo na Rede D'or e Estagiário no setor de Facilites, contas a pagar e Gestão de Contratos na Cidadania4u duramte 8 meses. </p>
+                 <div class="skills-container">
+                <div class="skills-category">
+                    <h3><i class="fas fa-code"></i> Tecnologias & Linguagens</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item tech">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <span class="skill-name">Python: Pandas, Numpy, Plotly, Dash e Streamlit</span>
+                        </div>
+                        <div class="skill-item tech">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <span class="skill-name">SQL Básico: MySQL e SSMS</span>
+                        </div>
+                
+                <div class="skills-category">
+                    <h3><i class="fas fa-tools"></i> Ferramentas & Plataformas</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item tool">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <span class="skill-name">Power BI</span>
+                        </div>
+                        <div class="skill-item tool">
+                            <div class="skill-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <span class="skill-name">Git e GitHub</span>
+                        </div>
+
+                </div>
+                
+                <div class="skills-category">
+                    <h3><i class="fas fa-brain"></i> Habilidades Técnicas</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item soft">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-area"></i>
+                            </div>
+                            <span class="skill-name">Análise de Dados com Python desde Extração e tratamento de dados até Data visulization </span>
+                        </div>
+                        <div class="skill-item soft">
+                        <div class="skill-item soft">
+                            <div class="skill-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <span class="skill-name">Estatística para Análise Exploratória de dados</span>
+                        </div>
+
+                        <div class="skill-item soft">
+                            <div class="skill-icon">
+                                <i class="fas fa-file-excel"></i>
+                            </div>
+                            <span class="skill-name">Excel Intermediário: Tabela Dinâmica e VBA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboards-section">
+            <div class="dashboards-header" id="dashboards-toggle">
+                <h2><i class="fas fa-chart-line"></i> Dashboards Interativos</h2>
+                <i class="fas fa-chevron-down" id="toggle-icon"></i>
+            </div>
+            
+            <div class="dashboards-content" id="dashboards-content">
+                <div class="dashboard-item">
+                    <h3 class="dashboard-title"><i class="fas fa-car-crash"></i> Dashboard do Detran</h3>
+                    <p class="dashboard-description">Análise completa dos registros de acidentes públicos sobre o Detran durante 1 mês.</p>
+                    <a href="https://detran.streamlit.app/" target="_blank" class="dashboard-link">
+                        <i class="fas fa-external-link-alt"></i> Acessar Dashboard
+                    </a>
+                </div>
+                
+                <div class="dashboard-item">
+                    <h3 class="dashboard-title"><i class="fas fa-money-bill-trend-up"></i> Startups Vs Blue Chips</h3>
+                    <p class="dashboard-description">Como os principais indicadores macroeconômicos afetam pequenas empresas de tecnologias e empresas consolidadas.</p>
+                    <a href="https://bluechipsstartups.streamlit.app/" target="_blank" class="dashboard-link">
+                        <i class="fas fa-external-link-alt"></i> Acessar Dashboard
+                    </a>
+                </div>
+                
+                <div class="dashboard-item">
+                    <h3 class="dashboard-title"><i class="fas fa-exclamation-circle"></i> Análise de Inadimplência</h3>
+                    <p class="dashboard-description">Análise Geral de inadimplência de uma base fictícia. Além disso, fiz uma calculadora rápida para calcular o risco de inadimplência.</p>
+                    <a href="https://indadimplencia.streamlit.app/" target="_blank" class="dashboard-link">
+                        <i class="fas fa-external-link-alt"></i> Acessar Dashboard
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Meus Contatos</p>
+            <div class="contact-links">
+                <a href="mailto:felipe32br@gmail.com" title="E-mail"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/luiz-felipe-a50a71267/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/LuizzFelipers/luiz_felipe_project_one" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <p style="margin-top: 20px;">&copy; 2026 Luiz Felipe. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Script para expandir/recolher a seção de dashboards
+        const dashboardsToggle = document.getElementById('dashboards-toggle');
+        const dashboardsContent = document.getElementById('dashboards-content');
+        const toggleIcon = document.getElementById('toggle-icon');
+        
+        dashboardsToggle.addEventListener('click', () => {
+            dashboardsContent.classList.toggle('expanded');
+            
+            // Alternar ícone
+            if (dashboardsContent.classList.contains('expanded')) {
+                toggleIcon.classList.remove('fa-chevron-down');
+                toggleIcon.classList.add('fa-chevron-up');
+            } else {
+                toggleIcon.classList.remove('fa-chevron-up');
+                toggleIcon.classList.add('fa-chevron-down');
+            }
+        });
+        
+        // Expandir automaticamente ao carregar a página
+        window.addEventListener('load', () => {
+            dashboardsContent.classList.add('expanded');
+            toggleIcon.classList.remove('fa-chevron-down');
+            toggleIcon.classList.add('fa-chevron-up');
+        });
+    </script>
+</body>
+</html>
